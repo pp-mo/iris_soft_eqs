@@ -1,3 +1,4 @@
+from glob import glob
 import os
 import os.path
 
@@ -25,6 +26,26 @@ def all_pp_files_iter(non_pp_only=False):
         if ((non_pp_only and not is_pp) or
             (not non_pp_only and is_pp)):
                 yield filepath
+
+def all_pp_dirs():
+    base_path = os.path.join(datazoo_path, 'PP')
+    return (dirpath
+            for dirpath, dirnames, filenames
+            in os.walk(base_path, followlinks=True)
+            if any(filename.endswith('.pp') for filename in filenames))
+
+
+def sample_pp_files(n_max_per_dir=3):
+    for pp_dirpath in all_pp_dirs():
+        filenames = glob(os.path.join(pp_dirpath, '*.pp'))
+        if n_max_per_dir:
+            filenames = filenames[:n_max_per_dir]
+        filenames = [os.path.join(pp_dirpath, filename)
+                     for filename in filenames]
+        for i_name in range(1, len(filenames)):
+            filenames[i_name] = '  + ' + filenames[i_name]
+        for filename in filenames:
+            yield filename
 
 def show_all_files():
     print
@@ -62,8 +83,30 @@ def tst2():
     #  'normal' has decreasing values 1000...250, 'structured' is ascending
     #
 
+def tst_compare_all():
+    for filename in sample_pp_files(1):
+        print filename
+        try:
+            d_normal = normal_load(filename)
+        except Exception as err:
+            msg = '  XXX normal load fails : {}'.format(filename, err)
+        else:
+            try:
+                d_struct = structured_load(filename)
+            except Exception as err:
+                msg = '  --- structured load fails : ' + str(err)
+            else:
+                result, err_msg = compare_cubelists(d_normal, d_struct)
+                if result:
+                    assert err_msg == ''
+                    msg = '  + OK'
+                else:
+                    msg = '  -- MATCH FAIL: ' + err_msg
+        print msg
+
 
 if __name__ == '__main__':
-    tst1()
-    tst2()
-
+#    tst1()
+#    tst2()
+#    print '\n'.join(sample_pp_files(4))
+    tst_compare_all()
