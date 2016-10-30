@@ -83,13 +83,29 @@ def tst2():
     #  'normal' has decreasing values 1000...250, 'structured' is ascending
     #
 
-def tst_compare_all():
-    for filename in sample_pp_files(1):
-        print filename
+def tst_compare_all_files(filenames):
+#    for filename in sample_pp_files(1):
+#    for filename in all_ff_files_iter():
+    for filename in filenames:
+        skip = False
+        truename = filename
+        if filename.startswith('#'):
+            truename = filename[1:].strip()
+            skip = True
+        megs = os.stat(truename).st_size * 1.0e-6
+        if megs > 350.0:
+            skip = True
+
+        print
+        print '{}   {:8.3f}Mb'.format(filename.ljust(60), megs)
+        if skip:
+            print '  ((skip))'
+            continue
+
         try:
             d_normal = normal_load(filename)
         except Exception as err:
-            msg = '  XXX normal load fails : {}'.format(filename, err)
+            msg = '  XXX normal load fails : {}'.format(err)
         else:
             try:
                 d_struct = structured_load(filename)
@@ -104,9 +120,20 @@ def tst_compare_all():
                     msg = '  -- MATCH FAIL: ' + err_msg
         print msg
 
+def tst_compare_pps():
+    with open('selected_pp_files.txt') as fo:
+        filenames = fo.readlines()
+    filenames = [filename.strip()
+                 for filename in filenames]
+    filenames = [filename for filename in filenames if len(filename) > 0]
+    tst_compare_all_files(filenames)
+
+def tst_compare_ffs():
+    tst_compare_all_files(all_ff_files_iter())
+
 
 if __name__ == '__main__':
 #    tst1()
 #    tst2()
 #    print '\n'.join(sample_pp_files(4))
-    tst_compare_all()
+    tst_compare_pps()
