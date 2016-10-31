@@ -93,7 +93,7 @@ def tst_compare_all_files(filenames):
             truename = filename[1:].strip()
             skip = True
         megs = os.stat(truename).st_size * 1.0e-6
-        if megs > 350.0:
+        if megs > 750.0:
             skip = True
 
         print
@@ -112,13 +112,18 @@ def tst_compare_all_files(filenames):
             except Exception as err:
                 msg = '  --- structured load fails : ' + str(err)
             else:
-                result, message = compare_cubelists(d_normal, d_struct)
-                if result:
-                    msg = '  + OK'
-                    if message:
-                        msg += '   ({})'.format(message)
+                try:
+                    result, message = compare_cubelists(d_normal, d_struct)
+                except Exception as e:
+                    msg = '  ??? comparison crashed : {}'
+                    msg = msg.format(e)
                 else:
-                    msg = '  -- MATCH FAIL: {}'.format(message)
+                    if result:
+                        msg = '  + OK'
+                        if message:
+                            msg += '   ({})'.format(message)
+                    else:
+                        msg = '  -- MATCH FAIL: {}'.format(message)
         print msg
 
 def tst_compare_pps():

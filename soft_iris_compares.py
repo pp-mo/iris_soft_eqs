@@ -58,6 +58,14 @@ def compare_coords(ref_coord, tst_coord):
         # Check the data-endpoint values (ignoring dimension directions).
         ref_ends = coord_endpoint_values(ref_coord)
         tst_ends = coord_endpoint_values(tst_coord)
+        try:
+            same = np.allclose(tst_ends, ref_ends)
+        except Exception as e:
+            # Something nasty happens in here sometimes ?
+            msg = 'np.allclose error : {}'
+            success, message = False, msg.format(str(e))
+            return success, message
+
         if not np.allclose(tst_ends, ref_ends):
             msg = 'Coords {!r} have significantly different values.'
             success, message = False, msg.format(coord_name)
