@@ -1,5 +1,6 @@
 from __future__ import (absolute_import, division, print_function)
 from six.moves import (filter, input, map, range, zip)  # noqa
+import six
 
 import iris.tests as tests
 
@@ -12,19 +13,28 @@ from soft_iris_compares import (compare_coords,
                                 compare_cubes,
                                 compare_cubelists)
 
+def liststrings(item):
+    if isinstance(item, six.string_types):
+        result = [item]
+    else:
+        result = item
+    return item
+
 
 def _check_compare_result(testcase, func, item1, item2, msg='', err=''):
     # Exercise a 'compare' function
     result, result_msg = func(item1, item2)
     if not err:
         if msg:
-            testcase.assertIn(msg, result_msg)
+            for msg in liststrings(msg):
+                testcase.assertIn(msg, result_msg)
         else:
             # Don't let an unspecifed warning message pass.
             testcase.assertEqual(result_msg, '')
         testcase.assertTrue(result)
     else:
-        testcase.assertIn(err, result_msg)
+        for err in liststrings(err):
+            testcase.assertIn(err, result_msg)
         testcase.assertFalse(result)
 
 
@@ -88,8 +98,7 @@ class TestCoordsMetadata(tests.IrisTest):
         c1.rename('air_temperature')
         c2 = c1.copy()
         c2.long_name = 'x'
-        msg = ("Coords 'air_temperature' have "
-               "different metadata")
+        msg = "Coords 'air_temperature' have different metadata"
         self._coords_eq(c1, c2, err=msg)
 
     def test_fail_varnames_differ(self):
@@ -217,8 +226,7 @@ class TestCubesMetadata(tests.IrisTest):
         c1.rename('air_temperature')
         c2 = c1.copy()
         c2.long_name = 'x'
-        err = ("Cubes 'air_temperature' have "
-               "different metadata")
+        err = "Cubes 'air_temperature' have different metadata"
         self._cubes_eq(c1, c2, err=err)
 
     def test_fail_varnames_differ(self):
@@ -248,16 +256,16 @@ class TestCubesCoordLists(tests.IrisTest):
         c1 =self.cube_a
         c2 = c1.copy()
         c2.remove_coord('y')
-        err = ("Cubes have different sets of coords: "
-               "coords ['y'] not found in second \"a\" cube")
+        err = ["Cubes have different sets of coords",
+               "coords ['y'] not found in second \"a\" cube"]
         self._cubes_eq(c1, c2, err=err)
 
     def test_fail_coords_extra(self):
         c1 =self.cube_a
         c2 = c1.copy()
         c1.remove_coord('y')
-        err = ("Cubes have different sets of coords: "
-               "additional coords ['y'] in second \"a\" cube")
+        err = ["Cubes have different sets of coords",
+               "additional coords ['y'] in second \"a\" cube"]
         self._cubes_eq(c1, c2, err=err)
 
     def test_fail_coords_differ(self):
@@ -265,9 +273,9 @@ class TestCubesCoordLists(tests.IrisTest):
         c2 = c1.copy()
         c1.remove_coord('x')
         c2.remove_coord('y')
-        err = ("Cubes have different sets of coords: "
-               "coords ['y'] not found "
-               "and additional coords ['x'] in second \"a\" cube")
+        err = ["Cubes have different sets of coords",
+               "coords ['y'] not found",
+               "additional coords ['x'] in second \"a\" cube"]
         self._cubes_eq(c1, c2, err=err)
 
 
@@ -286,12 +294,14 @@ class TestCubesDimsAndCoords(tests.IrisTest):
         c1 = self.cube_a
         c2 = c1.copy()
         c2.transpose((1, 0))
-        self._cubes_eq(c1, c2)
+        self._cubes_eq(c1, c2,
+                       msg=['Cubes have different shapes',
+                            'Cubes have different dimension orders'])
 
     def test_invert(self):
         c1 = self.cube_a
         c2 = c1[:, ::-1]
-        self._cubes_eq(c1, c2)
+        self._cubes_eq(c1, c2, msg='Coords \'x\' have different points arrays')
 
     def test_fail_shapes_differ(self):
         c1 = self.cube_a
@@ -306,7 +316,8 @@ class TestCubesDimsAndCoords(tests.IrisTest):
         c1.add_aux_coord(co_2x3, (0, 1))
         co_3x2 = AuxCoord(data2d.transpose(), long_name='twod')
         c2.add_aux_coord(co_3x2, (1, 0))
-        self._cubes_eq(c1, c2)
+        msg = 'Coords \'twod\' have different shapes'
+        self._cubes_eq(c1, c2, msg=msg)
 
     def test_fail_coords_differ(self):
         c1 =self.cube_a
