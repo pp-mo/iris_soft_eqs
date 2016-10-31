@@ -122,7 +122,7 @@ def tst_compare_all_files(filenames):
         print msg
 
 def tst_compare_pps():
-    with open('selected_pp_files.txt') as fo:
+    with open('selected_files.txt') as fo:
         filenames = fo.readlines()
     filenames = [filename.strip()
                  for filename in filenames]
