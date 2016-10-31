@@ -112,12 +112,13 @@ def tst_compare_all_files(filenames):
             except Exception as err:
                 msg = '  --- structured load fails : ' + str(err)
             else:
-                result, err_msg = compare_cubelists(d_normal, d_struct)
+                result, message = compare_cubelists(d_normal, d_struct)
                 if result:
-                    assert err_msg == ''
                     msg = '  + OK'
+                    if message:
+                        msg += '   ({})'.format(message)
                 else:
-                    msg = '  -- MATCH FAIL: ' + err_msg
+                    msg = '  -- MATCH FAIL: {}'.format(message)
         print msg
 
 def tst_compare_pps():
@@ -135,5 +136,4 @@ def tst_compare_ffs():
 if __name__ == '__main__':
 #    tst1()
 #    tst2()
-#    print '\n'.join(sample_pp_files(4))
     tst_compare_pps()
