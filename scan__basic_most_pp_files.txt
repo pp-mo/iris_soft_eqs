@@ -1,0 +1,608 @@
+
+/data/local/dataZoo/PP/uk4.pp                                     0.415Mb
+  + OK
+
+/data/local/dataZoo/PP/ppmnvarLarge/xfhhka.pbi7oct.pp             9.010Mb
+  + OK
+
+/data/local/dataZoo/PP/orogFlow/orogFlow.pp                     220.439Mb
+  XXX normal load fails : unpack_from requires a buffer of at least 4 bytes
+
+/data/local/dataZoo/PP/ukV1/ukVpmslont.pp                        69.552Mb
+  + OK
+
+/data/local/dataZoo/PP/ukV1/ukVpmslont_first_field.pp             2.782Mb
+  + OK
+
+# /data/local/dataZoo/PP/ukV1/qv03Varres2.pp                   1630.154Mb
+  ((skip))
+
+# /data/local/dataZoo/PP/model_comp/ajhqaa.pmk7dec.pp           621.591Mb
+  ((skip))
+
+/data/local/dataZoo/PP/model_comp/dec_subset.pp                  16.957Mb
+  + OK
+
+/data/local/dataZoo/PP/model_comp/dec_first_field.pp              0.112Mb
+  + OK
+
+/data/local/dataZoo/PP/oceanMdi/gbl_2011081100.pp               406.865Mb
+  ((skip))
+
+/data/local/dataZoo/PP/trui/air_temp_mean.pp                     35.717Mb
+  + OK
+
+/data/local/dataZoo/PP/trui/air_temp_init/200812021200__qwqu12ff.initanl.pp     35.717Mb
+  + OK   (Coords 'pressure' have different points arrays.)
+
+/data/local/dataZoo/PP/trui/air_temp_T48/200812081200__qwqg12ff.T48.pp     35.717Mb
+  + OK   (Coords 'pressure' have different points arrays.)
+
+# /data/local/dataZoo/PP/moose_popular/crum/ajhoh/apm.pp/ajhoha.pm99sep.pp    460.015Mb
+  ((skip))
+
+/data/local/dataZoo/PP/moose_popular/opfc/atm/global/prods/2011.pp/prods_op_gl-mn_20110314_00_006.pp   1006.788Mb
+  ((skip))
+
+/data/local/dataZoo/PP/COLPEX/COLPEX_22a_pj000.pp              4931.613Mb
+  ((skip))
+
+/data/local/dataZoo/PP/COLPEX/theta_and_orog_subset.pp           18.188Mb
+  -- MATCH FAIL: cube#1:
+air_potential_temperature / (K)     (time: 6; model_level_number: 70; grid_latitude: 100; grid_longitude: 100)
+     Dimension coordinates:
+          time                           x                      -                  -                    -
+          model_level_number             -                      x                  -                    -
+          grid_latitude                  -                      -                  x                    -
+          grid_longitude                 -                      -                  -                    x
+     Auxiliary coordinates:
+          forecast_reference_time        x                      -                  -                    -
+          level_height                   -                      x                  -                    -
+          sigma                          -                      x                  -                    -
+          surface_altitude               -                      -                  x                    x
+     Derived coordinates:
+          altitude                       -                      x                  x                    x
+     Scalar coordinates:
+          forecast_period: 0.0 hours
+     Attributes:
+          STASH: m01s00i004
+          source: Data from Met Office Unified Model
+          um_version: 7.4
+
+.. not found in ..
+
+0: surface_altitude / (m)              (time: 6; grid_latitude: 100; grid_longitude: 100)
+1: air_potential_temperature / (K)     (time: 6; model_level_number: 70; grid_latitude: 100; grid_longitude: 100)
+
+/data/local/dataZoo/PP/COLPEX/small_eastward_wind.pp              4.486Mb
+  + OK
+
+/data/local/dataZoo/PP/COLPEX/small_colpex_theta_p_alt.pp         3.610Mb
+  + OK
+
+/data/local/dataZoo/PP/COLPEX/uwind_and_orog.pp                 293.629Mb
+  -- MATCH FAIL: cube#1:
+x_wind / (m s-1)                    (time: 6; model_level_number: 70; grid_latitude: 412; grid_longitude: 412)
+     Dimension coordinates:
+          time                           x                      -                  -                    -
+          model_level_number             -                      x                  -                    -
+          grid_latitude                  -                      -                  x                    -
+          grid_longitude                 -                      -                  -                    x
+     Auxiliary coordinates:
+          forecast_period                x                      -                  -                    -
+          level_height                   -                      x                  -                    -
+          sigma                          -                      x                  -                    -
+          surface_altitude               -                      -                  x                    x
+     Derived coordinates:
+          altitude                       -                      x                  x                    x
+     Scalar coordinates:
+          forecast_reference_time: 2009-09-09 16:00:00
+     Attributes:
+          STASH: m01s00i002
+          source: Data from Met Office Unified Model
+          um_version: 7.4
+
+.. not found in ..
+
+0: surface_altitude / (m)              (time: 6; grid_latitude: 412; grid_longitude: 412)
+1: x_wind / (m s-1)                    (time: 6; model_level_number: 70; grid_latitude: 412; grid_longitude: 412)
+
+/data/local/dataZoo/PP/COLPEX/air_potential_and_air_pressure.pp     82.699Mb
+  + OK
+
+/data/local/dataZoo/PP/COLPEX/COLPEX_16a_pj001.pp              4931.613Mb
+  ((skip))
+
+/data/local/dataZoo/PP/COLPEX/vwind.pp                          577.500Mb
+  ((skip))
+
+/data/local/dataZoo/PP/COLPEX/theta_and_orog.pp                 293.582Mb
+  -- MATCH FAIL: cube#1:
+air_potential_temperature / (K)     (time: 6; model_level_number: 70; grid_latitude: 412; grid_longitude: 412)
+     Dimension coordinates:
+          time                           x                      -                  -                    -
+          model_level_number             -                      x                  -                    -
+          grid_latitude                  -                      -                  x                    -
+          grid_longitude                 -                      -                  -                    x
+     Auxiliary coordinates:
+          forecast_period                x                      -                  -                    -
+          level_height                   -                      x                  -                    -
+          sigma                          -                      x                  -                    -
+          surface_altitude               -                      -                  x                    x
+     Derived coordinates:
+          altitude                       -                      x                  x                    x
+     Scalar coordinates:
+          forecast_reference_time: 2009-09-09 16:00:00
+     Attributes:
+          STASH: m01s00i004
+          source: Data from Met Office Unified Model
+          um_version: 7.4
+
+.. not found in ..
+
+0: surface_altitude / (m)              (time: 6; grid_latitude: 412; grid_longitude: 412)
+1: air_potential_temperature / (K)     (time: 6; model_level_number: 70; grid_latitude: 412; grid_longitude: 412)
+
+/data/local/dataZoo/PP/ar5/hybridPressure/sub.ajeeka.pml2jun.pp      3.155Mb
+  + OK   (Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.)
+
+/data/local/dataZoo/PP/ameva/amevaa.ph1982jan.pp                294.708Mb
+  + OK
+
+/data/local/dataZoo/PP/mogrepsR/2011032906.qtey06.oper12.036.pp     59.117Mb
+  + OK   (Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.)
+
+/data/local/dataZoo/PP/nicolasBellouin/ajhqaa.pmk7dec.pp        621.591Mb
+  ((skip))
+
+/data/local/dataZoo/PP/nicolasBellouin/dec_subset.pp             16.957Mb
+  + OK
+
+/data/local/dataZoo/PP/nicolasBellouin/ajhqaa.pmk8may.pp        621.591Mb
+  ((skip))
+
+/data/local/dataZoo/PP/nicolasBellouin/dec_first_field.pp         0.112Mb
+  + OK
+
+/data/local/dataZoo/PP/ostia/ostia_sst_200604_201009_N216.pp    923.764Mb
+  ((skip))
+
+/data/local/dataZoo/PP/ostia/ostia_sst_200604_201009_N216_subset.pp      1.694Mb
+  + OK
+
+/data/local/dataZoo/PP/wgdos_packed/nae.20100104-06_0001_unpacked.pp      3.457Mb
+  + OK
+
+/data/local/dataZoo/PP/wgdos_packed/nae.20100104-06_0001.pp       1.407Mb
+  + OK
+
+/data/local/dataZoo/PP/rotated_uk/rotated_uk.pp                   0.415Mb
+  + OK
+
+/data/local/dataZoo/PP/simple_pp/global.pp                        0.028Mb
+  + OK
+
+/data/local/dataZoo/PP/simple_pp/bad_global.pp                    0.028Mb
+  + OK
+
+/data/local/dataZoo/PP/forecastP+timeMean/akowia.pei4apr.pp       7.134Mb
+  + OK   (Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.)
+
+/data/local/dataZoo/PP/large_time_series/afixj_lbuser4=3236,lbproc=4096.pp    452.736Mb
+  ((skip))
+
+/data/local/dataZoo/PP/forLinearinterpolation/prodm_op_us4_20130511_00.018.pp   4452.741Mb
+  ((skip))
+
+/data/local/dataZoo/PP/um4/aligaa.pmu3aug.pp                      0.536Mb
+  + OK
+
+/data/local/dataZoo/PP/uk4/uk4_temp.pp                           15.355Mb
+  + OK
+
+/data/local/dataZoo/PP/uk4/uk4par09.pp                          349.753Mb
+  --- structured load fails : Invalid data dimensions: 2 given, 3 expected for 'surface_altitude'.
+
+/data/local/dataZoo/PP/hadgem3flux/net_heat_flux_edwards_method_ann.pp      0.112Mb
+  + OK
+
+/data/local/dataZoo/PP/itam/WO0000000000934/NAE.20100908_00_fc.pp      0.864Mb
+  + OK
+
+/data/local/dataZoo/PP/itam/WO0000000000934/NAE.20100908_00_an.pp      0.864Mb
+  + OK
+
+/data/local/dataZoo/PP/hybrid_pressure/aklqaa.pyf2c10.pp          5.493Mb
+  -- MATCH FAIL: cubelists of different lengths
+
+/data/local/dataZoo/PP/hybrid_pressure/aklqaa.pyf1c10.pp          5.493Mb
+  -- MATCH FAIL: cubelists of different lengths
+
+/data/local/dataZoo/PP/Headerv3/allnha_ca009.pp                 832.126Mb
+  ((skip))
+
+/data/local/dataZoo/PP/ukVorog/ukv_orog_refonly.pp                2.782Mb
+  + OK
+
+/data/local/dataZoo/PP/ukVorog/ukv_orog_full.pp                 169.707Mb
+  + OK
+
+/data/local/dataZoo/PP/meanMaxMin/200806081200__qwpb.T24.pp      21.709Mb
+  -- MATCH FAIL: cube#1:
+atmosphere_optical_thickness_due_to_dust_ambient_aerosol / (1) (pseudo_level: 6; latitude: 145; longitude: 192)
+     Dimension coordinates:
+          pseudo_level                                                      x            -               -
+          latitude                                                          -            x               -
+          longitude                                                         -            -               x
+     Scalar coordinates:
+          forecast_period: 12.0 hours, bound=(0.0, 24.0) hours
+          forecast_reference_time: 2008-06-08 12:00:00
+          time: 2008-06-09 00:00:00, bound=(2008-06-08 12:00:00, 2008-06-09 12:00:00)
+     Attributes:
+          STASH: m01s02i285
+          source: Data from Met Office Unified Model
+          um_version: 7.8
+     Cell methods:
+          mean: time (1 hour)
+
+.. not found in ..
+
+0: snowfall_amount / (kg m-2)          (latitude: 145; longitude: 192)
+1: surface_temperature / (K)           (time: 2; latitude: 145; longitude: 192)
+2: surface_temperature / (K)           (latitude: 145; longitude: 192)
+3: surface_temperature / (K)           (latitude: 145; longitude: 192)
+4: surface_temperature / (K)           (latitude: 145; longitude: 192)
+5: land_binary_mask / (1)              (time: 2; latitude: 145; longitude: 192)
+6: sea_ice_area_fraction / (1)         (time: 2; latitude: 145; longitude: 192)
+7: surface_altitude / (m)              (time: 2; latitude: 145; longitude: 192)
+8: surface_air_pressure / (Pa)         (latitude: 145; longitude: 192)
+9: surface_net_downward_shortwave_flux / (W m-2) (latitude: 145; longitude: 192)
+10: unknown / (unknown)                 (latitude: 145; longitude: 192)
+11: toa_outgoing_shortwave_flux / (W m-2) (latitude: 145; longitude: 192)
+12: toa_outgoing_shortwave_flux / (W m-2) (latitude: 145; longitude: 192)
+13: toa_incoming_shortwave_flux / (W m-2) (latitude: 145; longitude: 192)
+14: toa_outgoing_shortwave_flux / (W m-2) (latitude: 145; longitude: 192)
+15: toa_outgoing_shortwave_flux_assuming_clear_sky / (W m-2) (latitude: 145; longitude: 192)
+16: surface_downwelling_shortwave_flux_in_air_assuming_clear_sky / (W m-2) (latitude: 145; longitude: 192)
+17: surface_upwelling_shortwave_flux_in_air_assuming_clear_sky / (W m-2) (latitude: 145; longitude: 192)
+18: unknown / (unknown)                 (latitude: 145; longitude: 192)
+19: unknown / (unknown)                 (latitude: 145; longitude: 192)
+20: surface_downwelling_shortwave_flux_in_air / (W m-2) (latitude: 145; longitude: 192)
+21: surface_net_downward_longwave_flux / (W m-2) (latitude: 145; longitude: 192)
+22: cloud_area_fraction / (1)           (latitude: 145; longitude: 192)
+23: toa_outgoing_longwave_flux / (W m-2) (latitude: 145; longitude: 192)
+24: toa_outgoing_longwave_flux_assuming_clear_sky / (W m-2) (latitude: 145; longitude: 192)
+25: surface_downwelling_longwave_flux / (W m-2) (latitude: 145; longitude: 192)
+26: surface_downwelling_longwave_flux_assuming_clear_sky / (W m-2) (latitude: 145; longitude: 192)
+27: atmosphere_optical_thickness_due_to_sulphate_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+28: atmosphere_optical_thickness_due_to_dust_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+29: atmosphere_optical_thickness_due_to_seasalt_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+30: atmosphere_optical_thickness_due_to_black_carbon_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+31: atmosphere_optical_thickness_due_to_biomass_burning_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+32: atmosphere_optical_thickness_due_to_biogenic_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+33: atmosphere_optical_thickness_due_to_fossil_fuel_organic_carbon_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+34: atmosphere_optical_thickness_due_to_unspecified_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+35: atmosphere_boundary_layer_thickness / (m) (latitude: 145; longitude: 192)
+36: atmosphere_boundary_layer_thickness / (m) (latitude: 145; longitude: 192)
+37: unknown / (unknown)                 (latitude: 145; longitude: 192)
+38: surface_upward_sensible_heat_flux / (W m-2) (latitude: 145; longitude: 192)
+39: surface_upward_water_flux / (kg m-2 s-1) (latitude: 145; longitude: 192)
+40: x_wind / (m s-1)                    (latitude: 144; longitude: 192)
+41: y_wind / (m s-1)                    (latitude: 144; longitude: 192)
+42: wind_speed / (m s-1)                (latitude: 144; longitude: 192)
+43: surface_upward_latent_heat_flux / (W m-2) (latitude: 145; longitude: 192)
+44: air_temperature / (K)               (latitude: 145; longitude: 192)
+45: air_temperature / (K)               (latitude: 145; longitude: 192)
+46: air_temperature / (K)               (latitude: 145; longitude: 192)
+47: air_temperature / (K)               (latitude: 145; longitude: 192)
+48: specific_humidity / (1)             (latitude: 145; longitude: 192)
+49: relative_humidity / (%)             (latitude: 145; longitude: 192)
+50: water_sublimation_flux / (kg m-2 s-1) (latitude: 145; longitude: 192)
+51: Turbulent mixing height after boundary layer / (m) (latitude: 145; longitude: 192)
+52: Stable boundary layer indicator / (1) (latitude: 145; longitude: 192)
+53: Stratocumulus over stable boundary layer indicator / (1) (latitude: 145; longitude: 192)
+54: Well-mixed boundary layer indicator / (1) (latitude: 145; longitude: 192)
+55: Decoupled stratocumulus not over cumulus indicator / (1) (latitude: 145; longitude: 192)
+56: Decoupled stratocumulus over cumulus indicator / (1) (latitude: 145; longitude: 192)
+57: Cumulus capped boundary layer indicator / (1) (latitude: 145; longitude: 192)
+58: toa_outgoing_longwave_flux / (W m-2) (latitude: 145; longitude: 192)
+59: toa_outgoing_longwave_flux / (W m-2) (latitude: 145; longitude: 192)
+60: unknown / (unknown)                 (latitude: 145; longitude: 192)
+61: Shear driven boundary layer indicator / (1) (latitude: 145; longitude: 192)
+62: stratiform_rainfall_rate / (kg m-2 s-1) (latitude: 145; longitude: 192)
+63: stratiform_snowfall_rate / (kg m-2 s-1) (latitude: 145; longitude: 192)
+64: convective_rainfall_rate / (kg m-2 s-1) (latitude: 145; longitude: 192)
+65: convective_snowfall_flux / (kg m-2 s-1) (latitude: 145; longitude: 192)
+66: air_pressure_at_convective_cloud_base / (Pa) (latitude: 145; longitude: 192)
+67: air_pressure_at_convective_cloud_top / (Pa) (latitude: 145; longitude: 192)
+68: precipitation_flux / (kg m-2 s-1)   (latitude: 145; longitude: 192)
+69: deep convection indicator / (1)     (latitude: 145; longitude: 192)
+70: shallow convection indicator / (1)  (latitude: 145; longitude: 192)
+71: unknown / (unknown)                 (latitude: 145; longitude: 192)
+72: mid level convection indicator / (1) (latitude: 145; longitude: 192)
+73: unknown / (unknown)                 (latitude: 145; longitude: 192)
+74: unknown / (unknown)                 (latitude: 145; longitude: 192)
+75: deep convective precipitation rate / (kg/m^2/s) (latitude: 145; longitude: 192)
+76: shallow convective precipitation rate / (kg/m^2/s) (latitude: 145; longitude: 192)
+77: mid level convective precipitation rate / (kg/m^2/s) (latitude: 145; longitude: 192)
+78: unknown / (unknown)                 (latitude: 145; longitude: 192)
+79: unknown / (unknown)                 (latitude: 145; longitude: 192)
+80: unknown / (unknown)                 (latitude: 145; longitude: 192)
+81: unknown / (unknown)                 (latitude: 145; longitude: 192)
+82: unknown / (unknown)                 (latitude: 145; longitude: 192)
+83: unknown / (unknown)                 (latitude: 145; longitude: 192)
+84: soil_moisture_content / (unknown)   (latitude: 145; longitude: 192)
+85: canopy_water_amount / (unknown)     (latitude: 145; longitude: 192)
+86: moisture_content_of_soil_layer / (kg m-2) (soil_model_level_number: 4; latitude: 145; longitude: 192)
+87: soil_temperature / (K)              (soil_model_level_number: 4; latitude: 145; longitude: 192)
+88: mass_fraction_of_unfrozen_water_in_soil_moisture / (unknown) (soil_model_level_number: 4; latitude: 145; longitude: 192)
+89: mass_fraction_of_frozen_water_in_soil_moisture / (unknown) (soil_model_level_number: 4; latitude: 145; longitude: 192)
+90: surface_runoff_flux / (kg m-2 s-1)  (latitude: 145; longitude: 192)
+91: subsurface_runoff_flux / (kg m-2 s-1) (latitude: 145; longitude: 192)
+92: unknown / (unknown)                 (latitude: 145; longitude: 192)
+93: unknown / (unknown)                 (latitude: 145; longitude: 192)
+94: low_type_cloud_area_fraction / (1)  (latitude: 145; longitude: 192)
+95: low_type_cloud_area_fraction / (1)  (latitude: 145; longitude: 192)
+96: medium_type_cloud_area_fraction / (1) (latitude: 145; longitude: 192)
+97: medium_type_cloud_area_fraction / (1) (latitude: 145; longitude: 192)
+98: high_type_cloud_area_fraction / (1) (latitude: 145; longitude: 192)
+99: high_type_cloud_area_fraction / (1) (latitude: 145; longitude: 192)
+100: cloud_area_fraction_assuming_random_overlap / (1) (latitude: 145; longitude: 192)
+101: cloud_area_fraction_assuming_maximum_random_overlap / (1) (latitude: 145; longitude: 192)
+102: cloud_area_fraction_assuming_maximum_random_overlap / (1) (latitude: 145; longitude: 192)
+103: x_wind / (m s-1)                    (time: 2; pressure: 28; latitude: 144; longitude: 192)
+104: y_wind / (m s-1)                    (time: 2; pressure: 28; latitude: 144; longitude: 192)
+105: ertel_potential_vorticity / (K m2 kg-1 s-1) (time: 2; air_potential_temperature: 5; latitude: 144; longitude: 192)
+106: geopotential_height / (m)           (time: 2; pressure: 28; latitude: 145; longitude: 192)
+107: air_temperature / (K)               (time: 2; pressure: 28; latitude: 145; longitude: 192)
+108: relative_humidity / (%)             (time: 2; pressure: 28; latitude: 145; longitude: 192)
+109: air_pressure_at_sea_level / (Pa)    (time: 2; latitude: 145; longitude: 192)
+110: relative_humidity / (%)             (time: 2; pressure: 28; latitude: 145; longitude: 192)
+111: unknown / (unknown)                 (latitude: 145; longitude: 192)
+112: atmosphere_mass_per_unit_area / (kg m-2) (latitude: 145; longitude: 192)
+113: atmosphere_cloud_liquid_water_content / (kg m-2) (latitude: 145; longitude: 192)
+114: atmosphere_cloud_ice_content / (kg m-2) (latitude: 145; longitude: 192)
+115: unknown / (unknown)                 (latitude: 145; longitude: 192)
+116: surface_downward_eastward_stress / (Pa) (latitude: 145; longitude: 192)
+117: surface_downward_northward_stress / (Pa) (latitude: 144; longitude: 192)
+118: atmosphere_eastward_stress_due_to_gravity_wave_drag / (Pa) (latitude: 145; longitude: 192)
+119: atmosphere_northward_stress_due_to_gravity_wave_drag / (Pa) (latitude: 144; longitude: 192)
+
+/data/local/dataZoo/PP/mogrepssubsets/2010031612.qteg12.oper18.060.pp468.pp      7.304Mb
+  + OK   (Coords 'pressure' have different points arrays.)
+
+/data/local/dataZoo/PP/phil_gill_hires/MOHiResTr1220090709000000.pp     40.558Mb
+  + OK   (Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.)
+
+/data/local/dataZoo/PP/GloSea4/prodf_op_sfc_cam_11_20110724_013.pp      9.363Mb
+  + OK   (Coords 'pressure' have different points arrays.)
+
+/data/local/dataZoo/PP/ocean_rle/ocean_rle_unpacked.pp            0.942Mb
+  + OK
+
+/data/local/dataZoo/PP/ocean_rle/ocean_rle.pp                     0.662Mb
+  + OK
+
+/data/local/dataZoo/PP/non_standard_cross_sections/depth.time.pp      0.000Mb
+  + OK
+
+/data/local/dataZoo/PP/non_standard_cross_sections/pressure.latitude.pp      0.000Mb
+  + OK
+
+/data/local/dataZoo/PP/non_standard_cross_sections/depth.latitude.pp      0.000Mb
+  + OK
+
+/data/local/dataZoo/PP/non_standard_cross_sections/pressure.time.pp      0.000Mb
+  + OK
+
+/data/local/dataZoo/PP/non_standard_cross_sections/eta.latitude.pp      0.000Mb
+  + OK
+
+/data/local/dataZoo/PP/ukV2/xayrk.pp3.ppcutTH0.pp               483.732Mb
+  ((skip))
+
+/data/local/dataZoo/PP/ukV2/THOxayrk.pp                         489.779Mb
+  ((skip))
+
+/data/local/dataZoo/PP/ukV2/out10.pp                            241.866Mb
+  + OK
+
+/data/local/dataZoo/PP/ukV2/xayrk.pp3.pp.ht.pp                 1465.306Mb
+  ((skip))
+
+/data/local/dataZoo/PP/ukV2/spH_l1030_t10.pp                     42.327Mb
+  + OK
+
+/data/local/dataZoo/PP/ukV2/out4.pp                             241.866Mb
+  + OK
+
+/data/local/dataZoo/PP/ukV2/xayrk.pp3.pp.htcutTHh0.pp           483.732Mb
+  ((skip))
+
+/data/local/dataZoo/PP/ukV2/out33.pp                              6.047Mb
+  + OK
+
+/data/local/dataZoo/PP/ukV2/xayrk.pp3.pp                       1463.291Mb
+  ((skip))
+
+/data/local/dataZoo/PP/bernd_gusts/fp_3909_2001121818flag1.pp      4.400Mb
+  + OK
+
+# /data/local/dataZoo/PP/valNotes/akkvi/akkvia.s5i6djf.pp         0.335Mb
+  ((skip))
+
+/data/local/dataZoo/PP/valNotes/akkvi/raw/akkvia.pyk0c10.pp       0.307Mb
+  + OK   (Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.)
+
+/data/local/dataZoo/PP/valNotes/akkvi/raw2/akkvia.24_subset.pp      4.465Mb
+  -- MATCH FAIL: cube#1:
+surface_temperature / (K)           (time: 40; latitude: 145; longitude: 192)
+     Dimension coordinates:
+          time                           x             -               -
+          latitude                       -             x               -
+          longitude                      -             -               x
+     Auxiliary coordinates:
+          forecast_period                x             -               -
+     Scalar coordinates:
+          forecast_reference_time: 1978-09-01 00:00:00
+     Attributes:
+          STASH: m01s00i024
+          source: Data from Met Office Unified Model
+          um_version: 7.7
+     Cell methods:
+          mean: time (1 hour)
+
+.. not found in ..
+
+0: surface_temperature / (K)           (-- : 40; latitude: 145; longitude: 192)
+
+/data/local/dataZoo/PP/valNotes/akkvi/raw2/akkvia.24jjapp.pp    110.516Mb
+  -- MATCH FAIL: cube#1:
+surface_temperature / (K)           (time: 990; latitude: 145; longitude: 192)
+     Dimension coordinates:
+          time                           x              -               -
+          latitude                       -              x               -
+          longitude                      -              -               x
+     Auxiliary coordinates:
+          forecast_period                x              -               -
+     Scalar coordinates:
+          forecast_reference_time: 1978-09-01 00:00:00
+     Attributes:
+          STASH: m01s00i024
+          source: Data from Met Office Unified Model
+          um_version: 7.7
+     Cell methods:
+          mean: time (1 hour)
+
+.. not found in ..
+
+0: surface_temperature / (K)           (-- : 990; latitude: 145; longitude: 192)
+
+/data/local/dataZoo/PP/valNotes/akkvi/raw2/akkvia.24.pp         455.459Mb
+  ((skip))
+
+/data/local/dataZoo/PP/valNotes/supermeans/ajpdra.mln8jja.pp    281.537Mb
+  -- MATCH FAIL: cubelists of different lengths
+
+/data/local/dataZoo/PP/valNotes/xemjo/xemjoa.mbj8c10.pp         986.796Mb
+  ((skip))
+
+/data/local/dataZoo/PP/valNotes/xemjo/split/30406.pp              5.057Mb
+  -- MATCH FAIL: cubelists of different lengths
+
+/data/local/dataZoo/PP/valNotes/ERAI/clim_1989-2008/erai_nov.pp     15.951Mb
+  + OK
+
+/data/local/dataZoo/PP/valNotes/airxva/airxva.m5i6mam.pp        476.897Mb
+  ((skip))
+
+/data/local/dataZoo/PP/valNotes/airxva/raw/airxva.pyi9c10.pp      0.166Mb
+  + OK   (Coords 'pressure' have different points arrays.)
+
+/data/local/dataZoo/PP/valNotes/airxva/raw2/airxva.24jja.pp      80.375Mb
+  + OK
+
+/data/local/dataZoo/PP/valNotes/airxva/raw2/airxva.24.pp        326.077Mb
+  + OK
+
+/data/local/dataZoo/PP/_mogreps_subset/2010031612.qteg12.oper06.006.pp      0.562Mb
+  + OK
+
+/data/local/dataZoo/PP/david_bentley/prodm_op_euro4_20131003_00_pc012.pp    141.432Mb
+  XXX normal load fails : WGDOS exit code was non-zero: -1
+
+/data/local/dataZoo/PP/wind_climatology/eacvs.uv5.pp            373.951Mb
+  ((skip))
+
+/data/local/dataZoo/PP/globClim1/u_wind.pp                        4.247Mb
+  + OK
+
+/data/local/dataZoo/PP/globClim1/ajhqaa.pmk7dec.pp              621.591Mb
+  ((skip))
+
+/data/local/dataZoo/PP/globClim1/dec_subset.pp                   16.957Mb
+  + OK
+
+/data/local/dataZoo/PP/globClim1/humidity.pp                      4.247Mb
+  + OK
+
+/data/local/dataZoo/PP/globClim1/ajhqaa.pmk8may.pp              621.591Mb
+  ((skip))
+
+/data/local/dataZoo/PP/globClim1/v_wind.pp                        4.217Mb
+  + OK
+
+/data/local/dataZoo/PP/globClim1/theta.pp                         4.246Mb
+  + OK
+
+/data/local/dataZoo/PP/MOGREPS_G/prods_op_mogreps-g_20110921_00_02_006.pp     23.797Mb
+  + OK   (Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.)
+
+/data/local/dataZoo/PP/mogreps_subset/2010031612.qteg12.oper06.006.pp      0.562Mb
+  + OK
+
+/data/local/dataZoo/PP/ppmnvar/agkfca.pyy3c10.pp                355.884Mb
+  ((skip))
+
+/data/local/dataZoo/PP/ppmnvar/results/mean.pp                  355.884Mb
+  ((skip))
+
+/data/local/dataZoo/PP/ppmnvar/results/variance.pp              355.884Mb
+  ((skip))
+
+/data/local/dataZoo/PP/decadal/ajnuqa.pmk0apr.pp                  1.496Mb
+  + OK   (Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.; Coords 'pressure' have different points arrays.)
+
+/data/local/dataZoo/PP/mdi_handmade_small/mdi_test_900_6.pp       0.002Mb
+  + OK
+
+/data/local/dataZoo/PP/mdi_handmade_small/mdi_test_1000_0.pp      0.002Mb
+  + OK
+
+/data/local/dataZoo/PP/mdi_handmade_small/mdi_test_1000_3.pp      0.002Mb
+  + OK
+
+/data/local/dataZoo/PP/mdi_handmade_small/mdi_test_1000_6.pp      0.002Mb
+  + OK
+
+/data/local/dataZoo/PP/mdi_handmade_small/mdi_test_800_6.pp       0.002Mb
+  + OK
+
+/data/local/dataZoo/PP/mdi_handmade_small/mdi_test_800_0.pp       0.002Mb
+  + OK
+
+/data/local/dataZoo/PP/mdi_handmade_small/mdi_test_900_0.pp       0.002Mb
+  + OK
+
+/data/local/dataZoo/PP/mdi_handmade_small/mdi_test_800_3.pp       0.002Mb
+  + OK
+
+/data/local/dataZoo/PP/aPPglob1/global.pp                         0.028Mb
+  + OK
+
+/data/local/dataZoo/PP/aPPglob1/global_little_endian.pp           0.028Mb
+  -- MATCH FAIL: cubelists of different lengths
+
+/data/local/dataZoo/PP/aPPglob1/global_t_forecast.pp              0.250Mb
+  + OK
+
+/data/local/dataZoo/PP/A1B-Image_E1/pp_1859_1889_avg.pp           0.112Mb
+  + OK
+
+/data/local/dataZoo/PP/A1B-Image_E1/E1/000100000000.01.03.236.000128.1915.12.01.00.00.pp      0.112Mb
+  + OK
+
+/data/local/dataZoo/PP/A1B-Image_E1/A1B/000100000000.01.03.236.000128.1915.12.01.00.00.pp      0.112Mb
+  + OK
+
+/data/local/dataZoo/PP/aPProt1/rotatedMHtimecube.pp              12.444Mb
+  + OK
+
+/data/local/dataZoo/PP/aPProt1/tazmanian_rotation.pp             10.555Mb
+  + OK
+
+/data/local/dataZoo/PP/aPProt1/rotated.pp                         1.244Mb
+  + OK
+
+/data/local/dataZoo/PP/stuart_fox/sample.pp                       0.576Mb
+  + OK
