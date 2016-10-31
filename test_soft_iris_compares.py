@@ -13,14 +13,18 @@ from soft_iris_compares import (compare_coords,
                                 compare_cubelists)
 
 
-def _check_compare_result(testcase, func, item1, item2, fail_msg=''):
+def _check_compare_result(testcase, func, item1, item2, msg='', err=''):
     # Exercise a 'compare' function
-    result, msg = func(item1, item2)
-    if not fail_msg:
-        testcase.assertEqual(msg, '')
+    result, result_msg = func(item1, item2)
+    if not err:
+        if msg:
+            testcase.assertIn(msg, result_msg)
+        else:
+            # Don't let an unspecifed warning message pass.
+            testcase.assertEqual(result_msg, '')
         testcase.assertTrue(result)
     else:
-        testcase.assertIn(fail_msg, msg)
+        testcase.assertIn(err, result_msg)
         testcase.assertFalse(result)
 
 
@@ -30,8 +34,8 @@ class TestCoordsMetadata(tests.IrisTest):
         self.co_a = DimCoord([1, 2], long_name='a')
         self.msg_metadata = "Coords 'a' have different metadata"
 
-    def _coords_eq(self, c1, c2, fail_msg=''):
-        _check_compare_result(self, compare_coords, c1, c2, fail_msg=fail_msg)
+    def _coords_eq(self, c1, c2, msg='', err=''):
+        _check_compare_result(self, compare_coords, c1, c2, err=err, msg=msg)
 
     def test_self_eq(self):
         c1 = self.ref_co_1d
@@ -56,7 +60,7 @@ class TestCoordsMetadata(tests.IrisTest):
         c1 = self.co_a
         c2 = c1.copy()
         c2.attributes['this'] = 'that'
-        self._coords_eq(c1, c2, fail_msg=self.msg_metadata)
+        self._coords_eq(c1, c2, err=self.msg_metadata)
 
     def test_fail_attributes_missing(self):
         c1 = self.co_a
@@ -64,20 +68,20 @@ class TestCoordsMetadata(tests.IrisTest):
         c1.attributes['that'] = 'other'
         c2 = c1.copy()
         del c2.attributes['this']
-        self._coords_eq(c1, c2, fail_msg=self.msg_metadata)
+        self._coords_eq(c1, c2, err=self.msg_metadata)
 
     def test_fail_attributes_differ(self):
         c1 = self.co_a
         c1.attributes['this'] = 'that'
         c2 = c1.copy()
         c2.attributes['this'] = 'other'
-        self._coords_eq(c1, c2, fail_msg=self.msg_metadata)
+        self._coords_eq(c1, c2, err=self.msg_metadata)
 
     def test_fail_units_differ(self):
         c1 = self.co_a
         c2 = c1.copy()
         c2.units = 'm'
-        self._coords_eq(c1, c2, fail_msg=self.msg_metadata)
+        self._coords_eq(c1, c2, err=self.msg_metadata)
 
     def test_fail_long_names_differ(self):
         c1 = self.co_a
@@ -86,13 +90,13 @@ class TestCoordsMetadata(tests.IrisTest):
         c2.long_name = 'x'
         msg = ("Coords 'air_temperature' have "
                "different metadata")
-        self._coords_eq(c1, c2, fail_msg=msg)
+        self._coords_eq(c1, c2, err=msg)
 
     def test_fail_varnames_differ(self):
         c1 = self.co_a
         c2 = c1.copy()
         c2.var_name = 'q'
-        self._coords_eq(c1, c2, fail_msg=self.msg_metadata)
+        self._coords_eq(c1, c2, err=self.msg_metadata)
 
     #
     # NOTE: coord_system is also a possible metadata mismatch.
@@ -112,14 +116,14 @@ class TestCoordsValues(tests.IrisTest):
             long_name='b')
         self.value_msg = "significantly different values"
 
-    def _coords_eq(self, c1, c2, fail_msg=''):
-        _check_compare_result(self, compare_coords, c1, c2, fail_msg=fail_msg)
+    def _coords_eq(self, c1, c2, msg='', err=''):
+        _check_compare_result(self, compare_coords, c1, c2, msg=msg, err=err)
 
     def test_1d_invert(self):
         c1 = self.ref_1d
         c2 = c1.copy()
         c2 = c2[::-1]
-        self._coords_eq(c1, c2)
+        self._coords_eq(c1, c2, msg='different points arrays')
 
     def test_fail_1d_points_differ(self):
         c1 = self.ref_1d
@@ -127,7 +131,7 @@ class TestCoordsValues(tests.IrisTest):
         pts = c2.points.copy()
         pts[-1] += 5
         c2.points = pts
-        self._coords_eq(c1, c2, fail_msg=self.value_msg)
+        self._coords_eq(c1, c2, err=self.value_msg)
 
     def test_fail_1d_bounds_differ(self):
         c1 = self.ref_1d_bounded
@@ -135,7 +139,7 @@ class TestCoordsValues(tests.IrisTest):
         bds = c2.bounds.copy()
         bds[0, 0] -= 5.0
         c2.bounds = bds
-        self._coords_eq(c1, c2, fail_msg=self.value_msg)
+        self._coords_eq(c1, c2, err=self.value_msg)
 
     def test_multidim_invert_0(self):
         c1 = self.ref_multidim
@@ -143,7 +147,7 @@ class TestCoordsValues(tests.IrisTest):
         pts = c2.points.copy()
         pts = pts[::-1]
         c2.points = pts
-        self._coords_eq(c1, c2)
+        self._coords_eq(c1, c2, msg='different points arrays')
 
     def test_multidim_invert_1(self):
         c1 = self.ref_multidim
@@ -151,7 +155,7 @@ class TestCoordsValues(tests.IrisTest):
         pts = c2.points.copy()
         pts = pts[:, ::-1, :]
         c2.points = pts
-        self._coords_eq(c1, c2)
+        self._coords_eq(c1, c2, msg='different points arrays')
 
     def test_multidim_invert_02(self):
         c1 = self.ref_multidim
@@ -159,7 +163,7 @@ class TestCoordsValues(tests.IrisTest):
         pts = c2.points.copy()
         pts = pts[::-1, :, ::-1]
         c2.points = pts
-        self._coords_eq(c1, c2)
+        self._coords_eq(c1, c2, msg='different points arrays')
 
 
 class TestCubesMetadata(tests.IrisTest):
@@ -167,8 +171,8 @@ class TestCubesMetadata(tests.IrisTest):
         self.ref_cube_a = Cube([1, 2, 3], long_name='a')
         self.msg_metadata = "Cubes 'a' have different metadata"
 
-    def _cubes_eq(self, c1, c2, fail_msg=''):
-        _check_compare_result(self, compare_cubes, c1, c2, fail_msg=fail_msg)
+    def _cubes_eq(self, c1, c2, msg='', err=''):
+        _check_compare_result(self, compare_cubes, c1, c2, msg=msg, err=err)
 
     def test_self_eq(self):
         c1 = self.ref_cube_a
@@ -184,7 +188,7 @@ class TestCubesMetadata(tests.IrisTest):
         c1 = self.ref_cube_a
         c2 = c1.copy()
         c2.attributes['this'] = 'that'
-        self._cubes_eq(c1, c2, fail_msg=self.msg_metadata)
+        self._cubes_eq(c1, c2, err=self.msg_metadata)
 
     def test_fail_attributes_missing(self):
         c1 = self.ref_cube_a
@@ -192,36 +196,36 @@ class TestCubesMetadata(tests.IrisTest):
         c1.attributes['that'] = 'other'
         c2 = c1.copy()
         del c2.attributes['this']
-        self._cubes_eq(c1, c2, fail_msg=self.msg_metadata)
+        self._cubes_eq(c1, c2, err=self.msg_metadata)
 
     def test_fail_attributes_differ(self):
         c1 = self.ref_cube_a
         c1.attributes['this'] = 'that'
         c2 = c1.copy()
         c2.attributes['this'] = 'other'
-        self._cubes_eq(c1, c2, fail_msg=self.msg_metadata)
+        self._cubes_eq(c1, c2, err=self.msg_metadata)
 
     def test_fail_units_differ(self):
         c1 = self.ref_cube_a
         c1.units = 'm'
         c2 = c1.copy()
         c2.convert_units('ft')
-        self._cubes_eq(c1, c2, fail_msg=self.msg_metadata)
+        self._cubes_eq(c1, c2, err=self.msg_metadata)
 
     def test_fail_long_names_differ(self):
         c1 = self.ref_cube_a
         c1.rename('air_temperature')
         c2 = c1.copy()
         c2.long_name = 'x'
-        msg = ("Cubes 'air_temperature' have "
+        err = ("Cubes 'air_temperature' have "
                "different metadata")
-        self._cubes_eq(c1, c2, fail_msg=msg)
+        self._cubes_eq(c1, c2, err=err)
 
     def test_fail_varnames_differ(self):
         c1 = self.ref_cube_a
         c2 = c1.copy()
         c2.var_name = 'q'
-        self._cubes_eq(c1, c2, fail_msg=self.msg_metadata)
+        self._cubes_eq(c1, c2, err=self.msg_metadata)
 
 
 class TestCubesCoordLists(tests.IrisTest):
@@ -233,8 +237,8 @@ class TestCubesCoordLists(tests.IrisTest):
         self.cube_a.add_dim_coord(self.y_coord, 0)
         self.msg_metadata = "Cubes 'a' have different metadata"
 
-    def _cubes_eq(self, c1, c2, fail_msg=''):
-        _check_compare_result(self, compare_cubes, c1, c2, fail_msg=fail_msg)
+    def _cubes_eq(self, c1, c2, err='', msg=''):
+        _check_compare_result(self, compare_cubes, c1, c2, msg=msg, err=err)
 
     def test_self_eq(self):
         c1 = self.cube_a
@@ -244,27 +248,27 @@ class TestCubesCoordLists(tests.IrisTest):
         c1 =self.cube_a
         c2 = c1.copy()
         c2.remove_coord('y')
-        msg = ("Cubes have different sets of coords: "
+        err = ("Cubes have different sets of coords: "
                "coords ['y'] not found in second \"a\" cube")
-        self._cubes_eq(c1, c2, fail_msg=msg)
+        self._cubes_eq(c1, c2, err=err)
 
     def test_fail_coords_extra(self):
         c1 =self.cube_a
         c2 = c1.copy()
         c1.remove_coord('y')
-        msg = ("Cubes have different sets of coords: "
+        err = ("Cubes have different sets of coords: "
                "additional coords ['y'] in second \"a\" cube")
-        self._cubes_eq(c1, c2, fail_msg=msg)
+        self._cubes_eq(c1, c2, err=err)
 
     def test_fail_coords_differ(self):
         c1 =self.cube_a
         c2 = c1.copy()
         c1.remove_coord('x')
         c2.remove_coord('y')
-        msg = ("Cubes have different sets of coords: "
+        err = ("Cubes have different sets of coords: "
                "coords ['y'] not found "
                "and additional coords ['x'] in second \"a\" cube")
-        self._cubes_eq(c1, c2, fail_msg=msg)
+        self._cubes_eq(c1, c2, err=err)
 
 
 class TestCubesDimsAndCoords(tests.IrisTest):
@@ -275,8 +279,8 @@ class TestCubesDimsAndCoords(tests.IrisTest):
         self.cube_a.add_dim_coord(self.x_coord, 1)
         self.cube_a.add_dim_coord(self.y_coord, 0)
 
-    def _cubes_eq(self, c1, c2, fail_msg=''):
-        _check_compare_result(self, compare_cubes, c1, c2, fail_msg=fail_msg)
+    def _cubes_eq(self, c1, c2, msg='', err=''):
+        _check_compare_result(self, compare_cubes, c1, c2, msg=msg, err=err)
 
     def test_transpose(self):
         c1 = self.cube_a
@@ -292,7 +296,7 @@ class TestCubesDimsAndCoords(tests.IrisTest):
     def test_fail_shapes_differ(self):
         c1 = self.cube_a
         c2 = c1[:-1]
-        self._cubes_eq(c1, c2, fail_msg='Cube shapes are incompatible')
+        self._cubes_eq(c1, c2, err='Cube shapes are incompatible')
 
     def test_multidim_dims_differ(self):
         c1 = self.cube_a
@@ -308,7 +312,7 @@ class TestCubesDimsAndCoords(tests.IrisTest):
         c1 =self.cube_a
         c2 = c1.copy()
         c2.coord('x').attributes['extra'] = 1
-        self._cubes_eq(c1, c2, fail_msg="Coords 'x' have different metadata")
+        self._cubes_eq(c1, c2, err="Coords 'x' have different metadata")
 
 
 if __name__ == '__main__':

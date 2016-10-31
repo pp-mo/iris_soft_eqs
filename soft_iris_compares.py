@@ -42,18 +42,43 @@ def compare_coords(ref_coord, tst_coord):
     # A tolerant coordinate comparison check.
     # Allows for different ordering of dimensions, and possible inversion of
     # dimension directions (as in [..., ::-1, ...])
+    # Returns:
+    #     (success, message) : (bool, string)
+    #     * 'success' is True for soft match.
+    #     * 'message' is '' for full match, or warning of a "soft" difference,
+    #       or a diagnostic error message if 'success' is False.
+    success, message = True, ''
+    coord_name = ref_coord.name()
     if co_nodata(tst_coord) != co_nodata(ref_coord):
         msg = 'Coords {!r} have different metadata.'
-        return False, msg.format(tst_coord.name())
+        success, message = False, msg.format(coord_name)
+    else:
+        # Check the data-endpoint values (ignoring dimension directions).
+        ref_ends = coord_endpoint_values(ref_coord)
+        tst_ends = coord_endpoint_values(tst_coord)
+        if not np.allclose(tst_ends, ref_ends):
+            msg = 'Coords {!r} have significantly different values.'
+            success, message = False, msg.format(coord_name)
+        else:
+            # Report any 'soft' differences preventing total equality.
+            if ref_coord.shape != tst_coord.shape:
+                msg = 'Coords {!r} have different shapes: {!r} and {!r}.'
+                message = msg.format(coord_name,
+                                     ref_coord.shape, tst_coord.shape)
+            elif ref_coord.has_bounds() != tst_coord.has_bounds():
+                msg = 'Boundedness of {!r} coord are different: {} and {}.'
+                message = msg.format(coord_name,
+                                     ref_coord.has_bounds(),
+                                     tst_coord.has_bounds())
+            elif np.any(ref_coord.points != tst_coord.points):
+                msg = 'Coords {!r} have different points arrays.'
+                message = msg.format(coord_name)
+            elif (ref_coord.has_bounds() and tst_coord.has_bounds()
+                  and np.any(ref_coord.bounds != tst_coord.bounds)):
+                msg = 'Coords {!r} have different bounds arrays.'
+                message = msg.format(coord_name)
 
-    # Check the data-endpoint values (ignoring dimension directions).
-    ref_ends = coord_endpoint_values(ref_coord)
-    tst_ends = coord_endpoint_values(tst_coord)
-    if not np.allclose(tst_ends, ref_ends):
-        msg = 'Coords {!r} have significantly different values.'
-        return False, msg.format(tst_coord.name())
-
-    return True, ''
+    return success, message
 
 
 def compare_cubes(c1, c2):
