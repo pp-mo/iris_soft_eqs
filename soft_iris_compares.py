@@ -1,5 +1,7 @@
 import numpy as np
 
+import iris.analysis
+
 def co_nodata(coord):
     # Reduce a coord to a single dimension and single zero value, with possible
     # bounds, to enable metadata-only comparisons.
@@ -78,17 +80,50 @@ def compare_coords(ref_coord, tst_coord):
                 msg = 'Coords {!r} have different bounds arrays.'
                 message = msg.format(coord_name)
 
+    if not message and tst_coord != ref_coord:
+        success, message = False, 'Unidentified difference?'
+
+    return success, message
+
+
+def cubes_equal_without_data(c1, c2):
+    # Copy logic from Cube.__eq__, but don't compare (or fetch) actual data.
+    # Return (True, '') for actual equality, (False, "<reason>") otherwise.
+    #
+    # In usage context, we already compared the metadata so it can't be that.
+    # Compare the coords (exactly), and the data shape (not the actual data).
+    success, message = True, ''
+    coord_comparison = iris.analysis.coord_comparison(c1, c2)
+    coord_names = sorted(set(
+        [coord.name()
+         for grouptype in ('not_equal', 'non_equal_data_dimension')
+         for group in coord_comparison[grouptype]
+         for coord in group]))
+    if coord_names:
+        # There are any coordinates which are not fully equal.
+        msg = 'Coords {!r} do not compare.'
+        success, message = False, msg.format(coord_names)
+    if success:
+        # Compare data shapes (in lieu of actual data values).
+        if c1.shape != c2.shape:
+            success, message = False, 'different shapes'
     return success, message
 
 
 def compare_cubes(c1, c2):
     import numpy as np
 
+    difference_msgs = []
+
     # Test sorted shapes, not actual, to allow flexible dimension ordering.
     if sorted(c1.shape) != sorted(c2.shape):
         return False, 'Cube shapes are incompatible.'
+    elif c1.shape != c2.shape:
+        difference_msgs.append('Cubes have different shapes')
 
     if (c1.metadata != c2.metadata):
+        # NOTE: we _could_ relax rules on standard/long/var names, but for
+        # pp+ff we probably only ever have one of the first two.
         return False, 'Cubes {!r} have different metadata.'.format(c1.name())
 
     #
@@ -103,17 +138,17 @@ def compare_cubes(c1, c2):
     assert len(set(tst_names)) == len(tst_names)
     if tst_names != ref_names:
         # Don't have the 'same' coords overall : Try to explain the difference.
-        msg = 'Cubes have different sets of coords: '
+        result_msg = 'Cubes have different sets of coords: '
         missing = sorted(set(ref_names) - set(tst_names))
         extra = sorted(set(tst_names) - set(ref_names))
         if missing:
-            msg += 'coords {} not found'.format(missing)
+            result_msg += 'coords {} not found'.format(missing)
         if extra:
             if missing:
-                msg += ' and '
-            msg += 'additional coords {}'.format(extra)
-        msg += ' in second "{}" cube.'.format(c1.name())
-        return False, msg
+                result_msg += ' and '
+            result_msg += 'additional coords {}'.format(extra)
+        result_msg += ' in second "{}" cube.'.format(c1.name())
+        return False, result_msg
 
     # There is only one common "set" of coord names.
     coord_names = ref_names
@@ -139,16 +174,32 @@ def compare_cubes(c1, c2):
         # Note: this allows dimensions to appear in a different order in the
         # cube, or in a multidimensional coordinate.
         return False, 'Cubes have incompatible dimension mappings.'
+    elif ref_dim_coords != tst_dim_coords:
+        difference_msgs.append('Cubes have different dimension orders')
 
     # Finally compare the coords themselves, but allowing for possible
     # different dimension orderings and inverted dimension directions.
     for name in coord_names:
         ref_coord, tst_coord = (cube.coord(name) for cube in (c1, c2))
-        match, msg = compare_coords(ref_coord, tst_coord)
+        match, result_msg = compare_coords(ref_coord, tst_coord)
         if not match:
-            return False, msg
+            return False, result_msg
+        elif result_msg:
+            difference_msgs.append(result_msg)
+        elif ref_coord != tst_coord:
+            msg = 'Coords {} have unidentified difference?'
+            difference_msgs.append(msg.format(ref_coord.name()))
 
-    return True, ''
+    message = '; '.join(difference_msgs) or ''
+
+    if not message:
+        # Check if something doesn't match that we didn't already diagnose.
+        result, exact_message = cubes_equal_without_data(c1, c2)
+        if not result:
+            assert exact_message
+            message = exact_message
+
+    return True, message
 
 
 def compare_cubelists(cl1, cl2):
@@ -157,16 +208,19 @@ def compare_cubelists(cl1, cl2):
     set1 = set(cl1)
     set2 = set(cl2)
     result_pairs = []
+    messages = []
     for c1 in set1:
         found = False
         for c2 in list(set2):
-            found, _ = compare_cubes(c1, c2)
+            found, message = compare_cubes(c1, c2)
             if found:
                 set2.remove(c2)
                 result_pairs.append((c1, c2))
+                if message:
+                    messages.append(message)
                 break
         if not found:
             msg = 'cube#1:\n{}\n\n.. not found in ..\n\n{}'
             return False, msg.format(c1, cl2)
     assert set2 == set()
-    return True, ''
+    return True, '; '.join(messages)
