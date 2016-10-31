@@ -1,0 +1,57 @@
+
+# /home/h05/itpp/git/iris-test-data/test_data/FF/ancillary_fixed_length_header      0.002Mb
+  ((skip))
+
+# /home/h05/itpp/git/iris-test-data/test_data/FF/n48_multi_field.ieee32      2.124Mb
+  ((skip))
+
+/home/h05/itpp/git/iris-test-data/test_data/FF/n48_multi_field.ieee32.gz      0.027Mb
+  XXX normal load fails : No format specification could be found for the given buffer. File element cache:
+ {'FileExtension()': '.gz', 'LeadingLine()': '\x1f\x8b\x08\x08\xef\xe8\x9dQ\x00\x03n48_multi_field.ieee32\x00\xec\xda\x07xU\xd5\xda(\xea\xa5\x08*\xa2B\x04\x04D...', 'MagicNumber(8, None)': '2272919271416307025', 'UriProtocol()': 'file', 'MagicNumber(4, None)': '529205256', 'MagicNumber(100, None)': '\x1f\x8b\x08\x08\xef\xe8\x9dQ\x00\x03n48_multi_field.ieee32\x00\xec\xda\x07xU\xd5\xda(\xea\xa5\x08*\xa2B\x04\x04D...'}
+
+/home/h05/itpp/git/iris-test-data/test_data/FF/n48_multi_field_table_count      0.082Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/FF/n48_multi_field      0.082Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/FF/lbrel_test_data      0.049Mb
+  XXX normal load fails : Unsupported header release number: -32768
+
+/home/h05/itpp/git/iris-test-data/test_data/FF/lbc/small_lbc      4.321Mb
+  -- MATCH FAIL: cube#1:
+unknown / (unknown)                 (time: 2; model_level_number: 4; grid_latitude: 16; grid_longitude: 16)
+     Dimension coordinates:
+          time                           x                      -                 -                   -
+          model_level_number             -                      x                 -                   -
+          grid_latitude                  -                      -                 x                   -
+          grid_longitude                 -                      -                 -                   x
+     Auxiliary coordinates:
+          forecast_period                x                      -                 -                   -
+     Scalar coordinates:
+          forecast_reference_time: 2012-09-27 18:00:00
+          level_height: 0.0 m, bound=(0.0, 0.0) m
+          sigma: 0.0, bound=(0.0, 0.0)
+     Attributes:
+          STASH: m01s31i002
+          source: Data from Met Office Unified Model
+          um_version: 9.1
+
+.. not found in ..
+
+0: unknown / (unknown)                 (grid_latitude: 16; grid_longitude: 16)
+1: unknown / (unknown)                 (-- : 8; grid_latitude: 16; grid_longitude: 16)
+2: unknown / (unknown)                 (-- : 8; grid_latitude: 17; grid_longitude: 16)
+3: unknown / (unknown)                 (-- : 10; grid_latitude: 16; grid_longitude: 16)
+4: unknown / (unknown)                 (-- : 8; grid_latitude: 16; grid_longitude: 16)
+5: unknown / (unknown)                 (-- : 10; grid_latitude: 16; grid_longitude: 16)
+6: unknown / (unknown)                 (-- : 10; grid_latitude: 16; grid_longitude: 16)
+7: unknown / (unknown)                 (-- : 10; grid_latitude: 16; grid_longitude: 16)
+8: unknown / (unknown)                 (-- : 10; grid_latitude: 16; grid_longitude: 16)
+9: unknown / (unknown)                 (-- : 10; grid_latitude: 16; grid_longitude: 16)
+
+/home/h05/itpp/git/iris-test-data/test_data/FF/ancillary/qrparm.mask      7.684Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/FF/structured/small     12.607Mb
+  + OK

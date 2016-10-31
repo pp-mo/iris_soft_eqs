@@ -1,0 +1,365 @@
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/ukV1/ukVpmslont.pp     69.552Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/ukV1/ukVpmslont_first_field.pp      2.782Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/model_comp/dec_first_field.pp      0.112Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/COLPEX/theta_and_orog_subset.pp     18.188Mb
+  -- MATCH FAIL: cube#1:
+air_potential_temperature / (K)     (time: 6; model_level_number: 70; grid_latitude: 100; grid_longitude: 100)
+     Dimension coordinates:
+          time                           x                      -                  -                    -
+          model_level_number             -                      x                  -                    -
+          grid_latitude                  -                      -                  x                    -
+          grid_longitude                 -                      -                  -                    x
+     Auxiliary coordinates:
+          forecast_reference_time        x                      -                  -                    -
+          level_height                   -                      x                  -                    -
+          sigma                          -                      x                  -                    -
+          surface_altitude               -                      -                  x                    x
+     Derived coordinates:
+          altitude                       -                      x                  x                    x
+     Scalar coordinates:
+          forecast_period: 0.0 hours
+     Attributes:
+          STASH: m01s00i004
+          source: Data from Met Office Unified Model
+          um_version: 7.4
+
+.. not found in ..
+
+0: surface_altitude / (m)              (time: 6; grid_latitude: 100; grid_longitude: 100)
+1: air_potential_temperature / (K)     (time: 6; model_level_number: 70; grid_latitude: 100; grid_longitude: 100)
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/COLPEX/small_eastward_wind.pp      4.486Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/COLPEX/small_colpex_theta_p_alt.pp      3.610Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/wgdos_packed/nae.20100104-06_0001.pp      1.407Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/rotated_uk/rotated_uk.pp      0.415Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/simple_pp/global.pp      0.028Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/simple_pp/bad_global.pp      0.028Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/ukVorog/ukv_orog_refonly.pp      2.782Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/meanMaxMin/200806081200__qwpb.T24.pp     21.709Mb
+  -- MATCH FAIL: cube#1:
+atmosphere_optical_thickness_due_to_black_carbon_ambient_aerosol / (1) (pseudo_level: 6; latitude: 145; longitude: 192)
+     Dimension coordinates:
+          pseudo_level                                                              x            -               -
+          latitude                                                                  -            x               -
+          longitude                                                                 -            -               x
+     Scalar coordinates:
+          forecast_period: 12.0 hours, bound=(0.0, 24.0) hours
+          forecast_reference_time: 2008-06-08 12:00:00
+          time: 2008-06-09 00:00:00, bound=(2008-06-08 12:00:00, 2008-06-09 12:00:00)
+     Attributes:
+          STASH: m01s02i287
+          source: Data from Met Office Unified Model
+          um_version: 7.8
+     Cell methods:
+          mean: time (1 hour)
+
+.. not found in ..
+
+0: snowfall_amount / (kg m-2)          (latitude: 145; longitude: 192)
+1: surface_temperature / (K)           (time: 2; latitude: 145; longitude: 192)
+2: surface_temperature / (K)           (latitude: 145; longitude: 192)
+3: surface_temperature / (K)           (latitude: 145; longitude: 192)
+4: surface_temperature / (K)           (latitude: 145; longitude: 192)
+5: land_binary_mask / (1)              (time: 2; latitude: 145; longitude: 192)
+6: sea_ice_area_fraction / (1)         (time: 2; latitude: 145; longitude: 192)
+7: surface_altitude / (m)              (time: 2; latitude: 145; longitude: 192)
+8: surface_air_pressure / (Pa)         (latitude: 145; longitude: 192)
+9: surface_net_downward_shortwave_flux / (W m-2) (latitude: 145; longitude: 192)
+10: unknown / (unknown)                 (latitude: 145; longitude: 192)
+11: toa_outgoing_shortwave_flux / (W m-2) (latitude: 145; longitude: 192)
+12: toa_outgoing_shortwave_flux / (W m-2) (latitude: 145; longitude: 192)
+13: toa_incoming_shortwave_flux / (W m-2) (latitude: 145; longitude: 192)
+14: toa_outgoing_shortwave_flux / (W m-2) (latitude: 145; longitude: 192)
+15: toa_outgoing_shortwave_flux_assuming_clear_sky / (W m-2) (latitude: 145; longitude: 192)
+16: surface_downwelling_shortwave_flux_in_air_assuming_clear_sky / (W m-2) (latitude: 145; longitude: 192)
+17: surface_upwelling_shortwave_flux_in_air_assuming_clear_sky / (W m-2) (latitude: 145; longitude: 192)
+18: unknown / (unknown)                 (latitude: 145; longitude: 192)
+19: unknown / (unknown)                 (latitude: 145; longitude: 192)
+20: surface_downwelling_shortwave_flux_in_air / (W m-2) (latitude: 145; longitude: 192)
+21: surface_net_downward_longwave_flux / (W m-2) (latitude: 145; longitude: 192)
+22: cloud_area_fraction / (1)           (latitude: 145; longitude: 192)
+23: toa_outgoing_longwave_flux / (W m-2) (latitude: 145; longitude: 192)
+24: toa_outgoing_longwave_flux_assuming_clear_sky / (W m-2) (latitude: 145; longitude: 192)
+25: surface_downwelling_longwave_flux / (W m-2) (latitude: 145; longitude: 192)
+26: surface_downwelling_longwave_flux_assuming_clear_sky / (W m-2) (latitude: 145; longitude: 192)
+27: atmosphere_optical_thickness_due_to_sulphate_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+28: atmosphere_optical_thickness_due_to_dust_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+29: atmosphere_optical_thickness_due_to_seasalt_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+30: atmosphere_optical_thickness_due_to_black_carbon_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+31: atmosphere_optical_thickness_due_to_biomass_burning_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+32: atmosphere_optical_thickness_due_to_biogenic_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+33: atmosphere_optical_thickness_due_to_fossil_fuel_organic_carbon_ambient_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+34: atmosphere_optical_thickness_due_to_unspecified_aerosol / (1) (-- : 6; latitude: 145; longitude: 192)
+35: atmosphere_boundary_layer_thickness / (m) (latitude: 145; longitude: 192)
+36: atmosphere_boundary_layer_thickness / (m) (latitude: 145; longitude: 192)
+37: unknown / (unknown)                 (latitude: 145; longitude: 192)
+38: surface_upward_sensible_heat_flux / (W m-2) (latitude: 145; longitude: 192)
+39: surface_upward_water_flux / (kg m-2 s-1) (latitude: 145; longitude: 192)
+40: x_wind / (m s-1)                    (latitude: 144; longitude: 192)
+41: y_wind / (m s-1)                    (latitude: 144; longitude: 192)
+42: wind_speed / (m s-1)                (latitude: 144; longitude: 192)
+43: surface_upward_latent_heat_flux / (W m-2) (latitude: 145; longitude: 192)
+44: air_temperature / (K)               (latitude: 145; longitude: 192)
+45: air_temperature / (K)               (latitude: 145; longitude: 192)
+46: air_temperature / (K)               (latitude: 145; longitude: 192)
+47: air_temperature / (K)               (latitude: 145; longitude: 192)
+48: specific_humidity / (1)             (latitude: 145; longitude: 192)
+49: relative_humidity / (%)             (latitude: 145; longitude: 192)
+50: water_sublimation_flux / (kg m-2 s-1) (latitude: 145; longitude: 192)
+51: Turbulent mixing height after boundary layer / (m) (latitude: 145; longitude: 192)
+52: Stable boundary layer indicator / (1) (latitude: 145; longitude: 192)
+53: Stratocumulus over stable boundary layer indicator / (1) (latitude: 145; longitude: 192)
+54: Well-mixed boundary layer indicator / (1) (latitude: 145; longitude: 192)
+55: Decoupled stratocumulus not over cumulus indicator / (1) (latitude: 145; longitude: 192)
+56: Decoupled stratocumulus over cumulus indicator / (1) (latitude: 145; longitude: 192)
+57: Cumulus capped boundary layer indicator / (1) (latitude: 145; longitude: 192)
+58: toa_outgoing_longwave_flux / (W m-2) (latitude: 145; longitude: 192)
+59: toa_outgoing_longwave_flux / (W m-2) (latitude: 145; longitude: 192)
+60: unknown / (unknown)                 (latitude: 145; longitude: 192)
+61: Shear driven boundary layer indicator / (1) (latitude: 145; longitude: 192)
+62: stratiform_rainfall_rate / (kg m-2 s-1) (latitude: 145; longitude: 192)
+63: stratiform_snowfall_rate / (kg m-2 s-1) (latitude: 145; longitude: 192)
+64: convective_rainfall_rate / (kg m-2 s-1) (latitude: 145; longitude: 192)
+65: convective_snowfall_flux / (kg m-2 s-1) (latitude: 145; longitude: 192)
+66: air_pressure_at_convective_cloud_base / (Pa) (latitude: 145; longitude: 192)
+67: air_pressure_at_convective_cloud_top / (Pa) (latitude: 145; longitude: 192)
+68: precipitation_flux / (kg m-2 s-1)   (latitude: 145; longitude: 192)
+69: deep convection indicator / (1)     (latitude: 145; longitude: 192)
+70: shallow convection indicator / (1)  (latitude: 145; longitude: 192)
+71: unknown / (unknown)                 (latitude: 145; longitude: 192)
+72: mid level convection indicator / (1) (latitude: 145; longitude: 192)
+73: unknown / (unknown)                 (latitude: 145; longitude: 192)
+74: unknown / (unknown)                 (latitude: 145; longitude: 192)
+75: deep convective precipitation rate / (kg/m^2/s) (latitude: 145; longitude: 192)
+76: shallow convective precipitation rate / (kg/m^2/s) (latitude: 145; longitude: 192)
+77: mid level convective precipitation rate / (kg/m^2/s) (latitude: 145; longitude: 192)
+78: unknown / (unknown)                 (latitude: 145; longitude: 192)
+79: unknown / (unknown)                 (latitude: 145; longitude: 192)
+80: unknown / (unknown)                 (latitude: 145; longitude: 192)
+81: unknown / (unknown)                 (latitude: 145; longitude: 192)
+82: unknown / (unknown)                 (latitude: 145; longitude: 192)
+83: unknown / (unknown)                 (latitude: 145; longitude: 192)
+84: soil_moisture_content / (unknown)   (latitude: 145; longitude: 192)
+85: canopy_water_amount / (unknown)     (latitude: 145; longitude: 192)
+86: moisture_content_of_soil_layer / (kg m-2) (soil_model_level_number: 4; latitude: 145; longitude: 192)
+87: soil_temperature / (K)              (soil_model_level_number: 4; latitude: 145; longitude: 192)
+88: mass_fraction_of_unfrozen_water_in_soil_moisture / (unknown) (soil_model_level_number: 4; latitude: 145; longitude: 192)
+89: mass_fraction_of_frozen_water_in_soil_moisture / (unknown) (soil_model_level_number: 4; latitude: 145; longitude: 192)
+90: surface_runoff_flux / (kg m-2 s-1)  (latitude: 145; longitude: 192)
+91: subsurface_runoff_flux / (kg m-2 s-1) (latitude: 145; longitude: 192)
+92: unknown / (unknown)                 (latitude: 145; longitude: 192)
+93: unknown / (unknown)                 (latitude: 145; longitude: 192)
+94: low_type_cloud_area_fraction / (1)  (latitude: 145; longitude: 192)
+95: low_type_cloud_area_fraction / (1)  (latitude: 145; longitude: 192)
+96: medium_type_cloud_area_fraction / (1) (latitude: 145; longitude: 192)
+97: medium_type_cloud_area_fraction / (1) (latitude: 145; longitude: 192)
+98: high_type_cloud_area_fraction / (1) (latitude: 145; longitude: 192)
+99: high_type_cloud_area_fraction / (1) (latitude: 145; longitude: 192)
+100: cloud_area_fraction_assuming_random_overlap / (1) (latitude: 145; longitude: 192)
+101: cloud_area_fraction_assuming_maximum_random_overlap / (1) (latitude: 145; longitude: 192)
+102: cloud_area_fraction_assuming_maximum_random_overlap / (1) (latitude: 145; longitude: 192)
+103: x_wind / (m s-1)                    (time: 2; pressure: 28; latitude: 144; longitude: 192)
+104: y_wind / (m s-1)                    (time: 2; pressure: 28; latitude: 144; longitude: 192)
+105: ertel_potential_vorticity / (K m2 kg-1 s-1) (time: 2; air_potential_temperature: 5; latitude: 144; longitude: 192)
+106: geopotential_height / (m)           (time: 2; pressure: 28; latitude: 145; longitude: 192)
+107: air_temperature / (K)               (time: 2; pressure: 28; latitude: 145; longitude: 192)
+108: relative_humidity / (%)             (time: 2; pressure: 28; latitude: 145; longitude: 192)
+109: air_pressure_at_sea_level / (Pa)    (time: 2; latitude: 145; longitude: 192)
+110: relative_humidity / (%)             (time: 2; pressure: 28; latitude: 145; longitude: 192)
+111: unknown / (unknown)                 (latitude: 145; longitude: 192)
+112: atmosphere_mass_per_unit_area / (kg m-2) (latitude: 145; longitude: 192)
+113: atmosphere_cloud_liquid_water_content / (kg m-2) (latitude: 145; longitude: 192)
+114: atmosphere_cloud_ice_content / (kg m-2) (latitude: 145; longitude: 192)
+115: unknown / (unknown)                 (latitude: 145; longitude: 192)
+116: surface_downward_eastward_stress / (Pa) (latitude: 145; longitude: 192)
+117: surface_downward_northward_stress / (Pa) (latitude: 144; longitude: 192)
+118: atmosphere_eastward_stress_due_to_gravity_wave_drag / (Pa) (latitude: 145; longitude: 192)
+119: atmosphere_northward_stress_due_to_gravity_wave_drag / (Pa) (latitude: 144; longitude: 192)
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/st30211.b.pp      0.014Mb
+  -- MATCH FAIL: cube#1:
+northward_ocean_heat_transport / (PW) (pseudo_level: 4; time: 4; latitude: 143; longitude: 1)
+     Dimension coordinates:
+          pseudo_level                             x        -            -               -
+          time                                     -        x            -               -
+          latitude                                 -        -            x               -
+          longitude                                -        -            -               x
+     Auxiliary coordinates:
+          forecast_period                          -        x            -               -
+     Scalar coordinates:
+          forecast_reference_time: 1869-12-01 00:00:00
+     Attributes:
+          STASH: m02s30i211
+          source: Data from Met Office Unified Model
+     Cell methods:
+          mean: time
+
+.. not found in ..
+
+0: northward_ocean_heat_transport / (PW) (-- : 16; latitude: 143; longitude: 1)
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/000003000000.03.236.004224.1990.12.01.00.00.b.pp      0.028Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/aaxzc_lon_lat_several.b.pp      0.396Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/12187.b.pp      4.242Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/aaxzc_tseries.b.pp      0.000Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/aaxzc_level_lat_orig.b.pp      0.010Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/abxpa_press_lat.b.pp      0.005Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/aaxzc_lon_lat_press_orig.b.pp      0.849Mb
+  + OK   (Coords 'pressure' have different points arrays.)
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/HadCM2_ts_SAT_ann_18602100.b.pp      0.004Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/ocean_xsect.b.pp      0.012Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/002000000000.44.101.131200.1920.09.01.00.00.b.pp      0.006Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/aaxzc_time_press.b.pp      0.001Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/integer.b.pp      0.028Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/000003000000.16.202.000128.1860.09.01.00.00.b.pp      0.085Mb
+  + OK   (Coords 'pressure' have different points arrays.)
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/abcza_pa19591997_daily_29.b.pp     30.568Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/000003000000.03.236.008320.1990.12.01.00.00.b.pp      0.028Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/001000000000.00.000.000000.1860.01.01.00.00.f.b.pp      0.049Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/aaxzc_n10r13xy.b.pp      0.003Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/008000000000.44.101.000128.1890.09.01.00.00.b.pp      0.002Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/000003000000.03.236.000128.1990.12.01.00.00.b.pp      0.028Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/st0fc699.b.pp      0.166Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/model.b.pp      5.604Mb
+  + OK   (Coords 'pressure' have different points arrays.)
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/cf_processing/st0fc942.b.pp      0.199Mb
+  -- MATCH FAIL: cube#1:
+unknown / (unknown)                 (pseudo_level: 4; time: 4; depth: 20; grid_latitude: 143)
+     Dimension coordinates:
+          pseudo_level                           x        -         -                  -
+          time                                   -        x         -                  -
+          depth                                  -        -         x                  -
+          grid_latitude                          -        -         -                  x
+     Auxiliary coordinates:
+          forecast_period                        -        x         -                  -
+     Scalar coordinates:
+          forecast_reference_time: 1869-12-01 00:00:00
+     Attributes:
+          STASH: m02s00i???
+          source: Data from Met Office Unified Model
+     Cell methods:
+          mean: time
+
+.. not found in ..
+
+0: unknown / (unknown)                 (-- : 16; depth: 20; grid_latitude: 143)
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/structured/small.pp      0.023Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/ocean_rle/ocean_rle.pp      0.662Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/globClim1/u_wind.pp      4.247Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/globClim1/dec_subset.pp     16.957Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/globClim1/v_wind.pp      4.217Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/globClim1/theta.pp      4.246Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/little_endian/qrparm.orog.pp      0.495Mb
+  -- MATCH FAIL: cubelists of different lengths
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/mdi_handmade_small/mdi_test_900_6.pp      0.002Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/mdi_handmade_small/mdi_test_1000_0.pp      0.002Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/mdi_handmade_small/mdi_test_1000_3.pp      0.002Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/mdi_handmade_small/mdi_test_1000_6.pp      0.002Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/mdi_handmade_small/mdi_test_800_6.pp      0.002Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/mdi_handmade_small/mdi_test_800_0.pp      0.002Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/mdi_handmade_small/mdi_test_900_0.pp      0.002Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/mdi_handmade_small/mdi_test_800_3.pp      0.002Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/aPPglob1/global.pp      0.028Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/aPPglob1/global_little_endian.pp      0.028Mb
+  -- MATCH FAIL: cubelists of different lengths
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/aPPglob1/global_t_forecast.pp      0.250Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/aPProt1/rotatedMHtimecube.pp     12.444Mb
+  + OK
+
+/home/h05/itpp/git/iris-test-data/test_data/PP/aPProt1/rotated.pp      1.244Mb
+  + OK

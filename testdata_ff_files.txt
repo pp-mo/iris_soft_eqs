@@ -1,0 +1,9 @@
+# /home/h05/itpp/git/iris-test-data/test_data/FF/ancillary_fixed_length_header
+# /home/h05/itpp/git/iris-test-data/test_data/FF/n48_multi_field.ieee32
+/home/h05/itpp/git/iris-test-data/test_data/FF/n48_multi_field.ieee32.gz
+/home/h05/itpp/git/iris-test-data/test_data/FF/n48_multi_field_table_count
+/home/h05/itpp/git/iris-test-data/test_data/FF/n48_multi_field
+/home/h05/itpp/git/iris-test-data/test_data/FF/lbrel_test_data
+/home/h05/itpp/git/iris-test-data/test_data/FF/lbc/small_lbc
+/home/h05/itpp/git/iris-test-data/test_data/FF/ancillary/qrparm.mask
+/home/h05/itpp/git/iris-test-data/test_data/FF/structured/small
